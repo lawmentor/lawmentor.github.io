@@ -1,39 +1,344 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: url('gavel-2492011.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+}
+.header {
+    width: 100%;
+    height: 10%;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    
+    padding: 20px 100px;
+    background: transparent;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 99;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+
+.Home{
+    width: 50%;
+    /* border: 2px solid burlywood; */
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left:20px ;
+    margin: 300px;
+    z-index: 5;
+    backdrop-filter: blur(15px);
+    border-radius: 8px;
+}
+.Home h1{
+    font-size: 50px;
+    color: rgb(3, 100, 255);
 }
 
-h1 {
-    font-size: 46px;
+.logo {
+    font-size: 32px;
+    color: #3367b4;
+    text-decoration: none;
+    font-weight: 700;
+    pointer-events: none;
 }
 
-main {
-    border: 2px solid black;
-    border-radius:5px ;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #3367b4;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-p {
+.navbar a {
     font-size: 18px;
-    line-height: 1.5;
+    color: #3367b4;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: 40px;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
+.navbar .btnLogin-popup {
+
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 19px;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: larger;
+}
+
+.navbar .btnLogin-popup::before {
+    content: '';
+    position: absolute;
+    left: 0;
+
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #3367b4;
+    Opacity: .85;
+}
+
+.section {
+    min-height: 100vh;
+    /* background: url('gavel-2492011.jpg') no-repeat;
+    background-size: cover;
+    background-position: center; */
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 450px;
+    height: 100%;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: -1px 0 10px rgba(0, 0, 0, .3);
+    border: 2px solid rgba(255, 255, 255, .6);
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+.wrapper.active-popup{
+    opacity: 1;
+    pointer-events: auto;
+}
+.icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 10px;
+}
+.icon-close i{
+    font-size: 32px;
+    color: #222;
+}
+
+.wrapper .logreg-box {
+    width: 100%;
+}
+
+.wrapper .form-box.login{
+    display: block;
+}
+.wrapper.active .form-box.login{
+    display: none;
+}
+.wrapper .form-box.register{
+    display: none;
+}
+.wrapper.active .form-box.register{
+    display: block;
+}
+.logreg-box .logreg-title {
     text-align: center;
-    padding: 10px 0;
+    margin-bottom: 40px;
+    color: #3367b4;
+}
+
+.logreg-title h2 {
+    font-size: 32px;
+}
+
+.logreg-title p {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.logreg-box .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+
+    margin: 30px 0;
+    border-bottom: 2px solid #3367b4;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: larger;
+    font-weight: 500;
+    padding-right: 25px;
+}
+
+.input-box label {
+    position: absolute;
+    left: 0;
+    bottom: 40px;
+    font-size: 16px;
+    color: #3367b4;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: larger;
+    color: #3367b4;
+}
+
+.logreg-box .remember-forgot {
+    font-size: 14.5px;
+    color: black;
+    font-weight: 500;
+    margin: -15px 0px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #3367b4;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: #fff;
+}
+.btn{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: crimson;
+    background-color: aliceblue;
+    background-color: transparent;
+    /* border: 2px solid crimson; */
+    font-weight: bold;
+    margin: 10px 0px;
+}
+.btn a{
+    color: #3367b4;
+    text-decoration: none;
+/* .logreg-box .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    font-size: 16px;
+    color: #222;
+    transition: .5s;
+    align-items: center;
+} */
+}
+
+.logreg-box .btn:hover {
+    background-color: white;
+}
+
+.logreg-box .logreg-link {
+    font-size: 14.5px;
+    color: black;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 15px;
+}
+
+.logreg-link p a {
+    color: #3367b4;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.logreg-link p a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.media-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.media-option a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    height: 40px;
+    background: transparent;
+    border: 2px solid black;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    border-radius: 15px;
+    text-decoration: none;
+    color: #3367b4;
+    transition: .5s;
+}
+.media-option a:hover{
+    background: rgba(255, 255, 255, .4);
+}
+.media-option a i{
+    font-size: larger;
+    font-weight: 500;
+    color: black;
+    padding: 12px 0px ;
+}
+
+.bot{
+    height: 80px;
+    width: 80px;
+    /* position: absolute; */
+    background: #000;
+    position: sticky;
+    border-radius: 50%;
+    top: 20px;
+
+}
+.bot i{
+    color: #3367b4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: xxx-large;
+    
 }
